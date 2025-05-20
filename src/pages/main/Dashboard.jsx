@@ -84,7 +84,7 @@ const Dashboard = () => {
     return (
         <div className="flex h-screen mt-9 border-1 border-gray-800 rounded-lg bg-[#0f0f0f] text-white overflow-hidden">
             {isSidebarOpen && <SidebarComponent onClose={() => setIsSidebarOpen(false)} />}
-            <div className="flex-1 p-2 overflow-y-auto relative">
+            <div className="flex-1 flex flex-col p-2 overflow-y-auto relative">
                 {/* Topbar */}
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
@@ -208,7 +208,6 @@ const Dashboard = () => {
                     </DragDropContext>
                 </div>
 
-                <FolderSection />
             </div>
         </div>
     );

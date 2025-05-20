@@ -2,6 +2,7 @@ import React from 'react';
 
 import Topbar from './main/Topbar';
 import Dashboard from './main/Dashboard';
+import FolderSection from './main/FolderSection';
 
 const Mian = () => {
   return (
@@ -11,6 +12,7 @@ const Mian = () => {
         <div className="flex-1 p-4">
           <Dashboard />
      
+                <FolderSection />
       </div>
     </div>
   );
