@@ -11,7 +11,7 @@ import {
 
 const VerticalNavbar = () => {
   return (
-    <div className="fixed top-14 rounded-xl left-0 z-50 h-[92%] w-20 bg-[#1a1a1a] text-white border-1 border-[#595858] flex flex-col justify-between py-6 px-2">
+    <div className="fixed top-14 rounded-xl left-0 z-50 h-[92%] w-20 bg-[#111111] text-white border-1 border-[#595858] flex flex-col justify-between py-6 px-2">
       
       {/* Top Navigation */}
       <div className="flex flex-col gap-6 items-center">
