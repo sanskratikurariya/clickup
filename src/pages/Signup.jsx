@@ -56,13 +56,13 @@ const Signup = () => {
 
     return (
         <div className="relative min-h-screen bg-white overflow-hidden">
-            {/* Logo/Brand - Top Left */}
+          
             <a href="/" className="absolute top-4 left-4 z-50 flex items-center space-x-2">
                 <div className="w-6 h-6 rotate-45 bg-gradient-to-br from-[#7b68ee] to-[#e355c9] rounded-sm shadow-md" />
                 <h1 className="text-xl font-bold text-gray-800">ClickUp</h1>
             </a>
 
-            {/* Top Right Login */}
+       
             <div className="absolute top-4 right-4 flex items-center space-x-2">
                 <p className="text-sm text-black hidden sm:block">Already play with ClickUp?</p>
                 <Link to="/">
@@ -72,7 +72,7 @@ const Signup = () => {
                 </Link>
             </div>
 
-            {/* Signup Form */}
+       
             <div className="flex items-center justify-center min-h-screen px-4 py-8">
                 <form className="w-full max-w-md sm:max-w-md md:max-w-md bg-white shadow-xl rounded-xl p-6 sm:p-8 md:p-10 z-10" autoComplete="off">
                     <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Seconds to Signup!</h2>
@@ -152,7 +152,7 @@ const Signup = () => {
                 </form>
             </div>
 
-            {/* Bottom wave */}
+          
             <div className="absolute bottom-0 left-0 w-full h-[30%] z-0 overflow-hidden pointer-events-none">
                 <svg
                     className="w-full h-full"

@@ -66,7 +66,6 @@ const ClickUpLogin = () => {
         </div>
       </a>
 
-      {/* Top right sign up */}
       <div className="absolute top-4 right-4 flex items-center space-x-2">
         <p className="text-sm text-black hidden md:block">Don't have an account?</p>
         <Link to="/signup">
@@ -74,7 +73,7 @@ const ClickUpLogin = () => {
         </Link>
       </div>
 
-      {/* Center login box using flex for better responsiveness */}
+     
       <div className="flex items-center justify-center min-h-screen px-4">
         <div className="login shadow-xl rounded-md p-8 w-full max-w-md bg-white z-10">
           <h2 className="text-4xl font-bold mb-6 text-center">Welcome back!</h2>
@@ -127,7 +126,7 @@ const ClickUpLogin = () => {
 
           {error.error && <div className="text-red-600 mb-2">{error.error}</div>}
 
-          {/* Forgot password */}
+   
           <div className="text-right mb-4">
             <a href="#" className="text-sm text-blue-600 hover:underline">
               Forgot Password?
@@ -139,12 +138,11 @@ const ClickUpLogin = () => {
             Log In
           </button>
 
-          {/* SSO text */}
+       
           <div className="mt-4 text-center text-sm text-gray-500">
             or login with SSO
           </div>
 
-          {/* Sign up link */}
           <div className="mt-6 text-center text-sm">
             Don’t have an account?{" "}
             <a href="/signup" className="text-blue-600 hover:underline">
@@ -154,28 +152,27 @@ const ClickUpLogin = () => {
         </div>
       </div>
 
-      {/* Bottom gradient with slant */}
-      {/* Pure Gradient Background (No Images) */}
-      <div className="absolute bottom-0 left-0 w-full h-[35%] z-0 overflow-hidden pointer-events-none">
-        {/* Wavy Gradient Shape */}
-        <svg
-          className="w-full h-full"
-          viewBox="400 0 590 320"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="waveGradient" x1="0" y1="0" x2="2" y2="1">
-              <stop offset="0%" stopColor="#210ab9" />
-              <stop offset="100%" stopColor="#e355c9" />
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#waveGradient)"
-            d="M0,224L48,218.7C96,213,192,203,288,176C384,120,480,107,576,101.3C672,96,768,128,864,133.3C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64V320H0Z"
-          />
-        </svg>
-      </div>
+  
+ <div className="absolute bottom-0 left-0 w-full h-[35%] z-0 overflow-hidden pointer-events-none">
+  
+      <svg
+        className="w-full h-full"
+        viewBox="400 0 590 320"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="waveGradient" x1="0" y1="0" x2="2" y2="1">
+            <stop offset="0%" stopColor="#210ab9" />
+            <stop offset="100%" stopColor="#e355c9" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#waveGradient)"
+          d="M0,224L48,218.7C96,213,192,203,288,176C384,120,480,107,576,101.3C672,96,768,128,864,133.3C960,139,1056,117,1152,101.3C1248,85,1344,75,1392,69.3L1440,64V320H0Z"
+        />
+      </svg>
+    </div>
 
 
     </div>

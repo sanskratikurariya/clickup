@@ -1,11 +1,19 @@
 import React from 'react';
-import { Search, Aperture, Inbox } from 'lucide-react';
+import {
+  Search,
+  Aperture,
+  Inbox,
+  ListTodo,
+  Users2,
+  FolderKanban,
+  PlusSquare
+} from 'lucide-react';
 
 const Sidebar = ({ onClose }) => {
   return (
-    <div className="w-64 h-full bg-[#1a1a1a] text-white p-4 flex rounded-xl flex-col gap-4">
-
-      {/* Top section */}
+    <div className="fixed inset-0 z-50 sm:static sm:w-64 h-full bg-[#1a1a1a] text-white p-4 flex rounded-xl flex-col gap-4 sm:rounded-xl sm:block w-full sm:h-auto">
+      
+      {/* Header */}
       <div className="flex items-center justify-between">
         <span className="text-lg font-bold">Home</span>
         <div className="flex items-center gap-2">
@@ -25,12 +33,21 @@ const Sidebar = ({ onClose }) => {
 
       <hr className="border-gray-600 my-2" />
 
-      {/* Workspace */}
-      <div className="text-sm font-semibold">Sanskrati Kurariya's Workspace</div>
-      <div className="text-sm">Team Space</div>
-      <ul className="ml-4 space-y-2">
-        <li>Projects</li>
-        <li className="text-gray-400">New Space</li>
+      {/* Workspace Section */}
+      <div className="text-sm font-semibold mb-1">Sanskrati Kurariya's Workspace</div>
+      <ul className="ml-1 space-y-1">
+        <li className="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md">
+          <ListTodo size={16} /> All Tasks
+        </li>
+        <li className="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md">
+          <Users2 size={16} /> Team Space
+        </li>
+        <li className="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md">
+          <FolderKanban size={16} /> Projects
+        </li>
+        <li className="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-800 text-gray-400 px-2 py-1 rounded-md">
+          <PlusSquare size={16} /> New Space
+        </li>
       </ul>
     </div>
   );
