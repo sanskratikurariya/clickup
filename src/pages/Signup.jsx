@@ -1,7 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [error, setError] = useState({});
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token'); // or localStorage
+        if (token) {
+            // User is already logged in
+            navigate('/');
+        }
+    }, []);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const handleError = () => {
+        let errorMsg = "";
+        if (!name) {
+            errorMsg = "Please enter your name";
+            setError(prev => { return { ...prev, name: "Please enter your name" } })
+        }
+        if (!email || !emailRegex.test(email)) {
+            errorMsg = "Please enter a valid e-mail";
+            setError(prev => { return { ...prev, email: "Please enter a valid e-mail" } })
+        }
+        if (!password) {
+            errorMsg = "Please enter a valid password";
+            setError(prev => { return { ...prev, password: "Please enter a valid password" } })
+        }
+        return errorMsg;
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (handleError()) {
+            return;
+        }
+        const res = await fetch('http://localhost:5000/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        });
+        if(!res.ok) {
+            setError(prev => { return { ...prev, error: "Something went wrong" } });
+        } else {
+            navigate("/login", { state: { message: "Registration successful!" } });
+        }
+    }
+
     return (
         <div className="relative min-h-screen bg-white overflow-hidden">
             {/* Logo/Brand - Top Left */}
@@ -26,47 +78,75 @@ const Signup = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Seconds to Signup!</h2>
 
                     {/* Google login */}
-                    <div className="flex items-center border rounded-md p-3 mb-6 cursor-pointer hover:bg-gray-100">
-                        <img
-                            src="https://www.svgrepo.com/show/475656/google-color.svg"
-                            alt="Google"
-                            className="w-6 h-6 mr-3"
-                        />
-                        <span className="text-sm text-gray-700">Continue as Sanskrati</span>
-                    </div>
+                    <a href="http://localhost:5000/api/auth/google">
+                        <div className="flex items-center border rounded-md p-3 mb-6 cursor-pointer hover:bg-gray-100">
+                            <img
+                                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                                alt="Google"
+                                className="w-6 h-6 mr-3"
+                            />
+                            <span className="text-sm text-gray-700">Continue With Google</span>
+                        </div>
+                    </a>
 
                     {/* Name */}
-                    <label className="block mb-1 text-sm text-gray-600 text-left">Name</label>
-                    <input
-                        name="name"
-                        type="text"
-                        placeholder="Enter your name"
-                        autoComplete="new-name"
-                        className="w-full px-4 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+                    <div className="mb-4">
+                        <label className="block mb-1 text-sm text-gray-600 text-left">Name</label>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Enter your name"
+                            autoComplete="new-name"
+                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={name}
+                            onChange={(e) => {
+                                setError({});
+                                setName(e.target.value);
+                            }}
+                        />
+                        {error.name && <div className="text-red-600">{error.name}</div>}
+                    </div>
 
                     {/* Email */}
-                    <label className="block mb-1 text-sm text-gray-600 text-left">Work Email</label>
-                    <input
-                        name="email"
-                        type="email"
-                        placeholder="Enter your work email"
-                        autoComplete="new-email"
-                        className="w-full px-4 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+                    <div className="mb-4">
+                        <label className="block mb-1 text-sm text-gray-600 text-left">Work Email</label>
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="Enter your work email"
+                            autoComplete="new-email"
+                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={email}
+                            onChange={(e) => {
+                                setError({});
+                                setEmail(e.target.value);
+                            }}
+                        />
+                        {error.email && <div className="text-red-600">{error.email}</div>}
+                    </div>
 
                     {/* Password */}
-                    <label className="block mb-1 text-sm text-gray-600 text-left">Password</label>
-                    <input
-                        name="password"
-                        type="password"
-                        placeholder="Enter password"
-                        autoComplete="new-password"
-                        className="w-full px-4 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+                    <div className="mb-4">
+                        <label className="block mb-1 text-sm text-gray-600 text-left">Password</label>
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Enter password"
+                            autoComplete="new-password"
+                            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            value={password}
+                            onChange={(e) => {
+                                setError({});
+                                setPassword(e.target.value);
+                            }}
+                        />
+                        {error.password && <div className="text-red-600">{error.password}</div>}
+                    </div>
+
+                    {error.error && <div className="text-red-600 mb-2">{error.error}</div>}
 
                     {/* Button */}
-                    <button className="w-full bg-purple-700 font-bold text-white py-3 rounded-lg hover:bg-purple-800 transition mt-2">
+                    <button onClick={handleSubmit} className="w-full bg-purple-700 font-bold text-white py-3 rounded-lg hover:bg-purple-800 transition mt-2">
                         Play with ClickUp
                     </button>
                 </form>
