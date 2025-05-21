@@ -14,7 +14,6 @@ const ClickUpLogin = () => {
   </div>
 </a>
 
-      {/* Top right sign up */}
       <div className="absolute top-4 right-4 flex items-center space-x-2">
         <p className="text-sm text-black hidden md:block">Don't have an account?</p>
          <Link to="/signup">
@@ -22,12 +21,12 @@ const ClickUpLogin = () => {
       </Link>
       </div>
 
-      {/* Center login box using flex for better responsiveness */}
+     
       <div className="flex items-center justify-center min-h-screen px-4">
         <div className="login shadow-xl rounded-md p-8 w-full max-w-md bg-white z-10">
           <h2 className="text-4xl font-bold mb-6 text-center">Welcome back!</h2>
 
-          {/* Google login */}
+ 
           <div className="flex items-center border rounded-md p-3 mb-6 cursor-pointer hover:bg-gray-100">
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -38,7 +37,7 @@ const ClickUpLogin = () => {
           </div>
         
 
-          {/* Email Input */}
+        
           <label className="block mb-2 text-sm text-gray-600 text-left">Work Email</label>
           <input
             type="email"
@@ -46,7 +45,7 @@ const ClickUpLogin = () => {
             className="w-full px-4 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          {/* Password Input */}
+      
           <label className="block mb-2 text-left text-sm text-gray-600">Password</label>
           <input
             type="password"
@@ -54,24 +53,23 @@ const ClickUpLogin = () => {
             className="w-full px-4 py-2 border rounded-md mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          {/* Forgot password */}
+   
           <div className="text-right mb-4">
             <a href="#" className="text-sm text-blue-600 hover:underline">
               Forgot Password?
             </a>
           </div>
 
-          {/* Login Button */}
+    
           <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
             Log In
           </button>
 
-          {/* SSO text */}
+       
           <div className="mt-4 text-center text-sm text-gray-500">
             or login with SSO
           </div>
 
-          {/* Sign up link */}
           <div className="mt-6 text-center text-sm">
             Don’t have an account?{" "}
             <a href="#" className="text-blue-600 hover:underline">
@@ -81,10 +79,9 @@ const ClickUpLogin = () => {
         </div>
       </div>
 
-      {/* Bottom gradient with slant */}
-     {/* Pure Gradient Background (No Images) */}
+  
  <div className="absolute bottom-0 left-0 w-full h-[35%] z-0 overflow-hidden pointer-events-none">
-      {/* Wavy Gradient Shape */}
+  
       <svg
         className="w-full h-full"
         viewBox="400 0 590 320"

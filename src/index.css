@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* tailwind.css ya globals.css ya app/globals.css mein add karo */
+
 
 .scrollbar-custom::-webkit-scrollbar {
   width: 3px;

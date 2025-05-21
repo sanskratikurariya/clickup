@@ -31,7 +31,7 @@ const Topbar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full bg-black text-white px-2 py-2 flex flex-col md:flex-row items-center justify-between z-50 shadow-md gap-2 md:gap-0">
-      {/* Workspace Name with Dropdown */}
+
       <div className="relative w-full md:w-auto flex justify-between items-center">
         <div
           onClick={toggleDropdown}
@@ -70,7 +70,7 @@ const Topbar = () => {
         )}
       </div>
 
-      {/* Center Search and Task */}
+   
       <div className="flex items-center justify-center w-full md:w-auto gap-2">
         {/* Hide input on small screens */}
         <input
@@ -83,7 +83,7 @@ const Topbar = () => {
         </button>
       </div>
 
-      {/* Profile Circle */}
+  
       <div className="hidden md:block w-8 h-8 bg-white rounded-full"></div>
     </div>
   );

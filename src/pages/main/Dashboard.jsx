@@ -105,12 +105,12 @@ const Dashboard = () => {
         <div className="flex  mt-20 md:mt-9 border-1 border-gray-800 rounded-lg bg-[#0f0f0f] h-screen p-2 text-white overflow-x-hidden ">
             {isSidebarOpen && <SidebarComponent onClose={() => setIsSidebarOpen(false)} />}
             <div className="flex-1 flex flex-col p-2 overflow-y-auto relative mb-12 ">
-                {/* Topbar */}
+           
                 <div className="w-full bg-[#111] text-white">
-                    {/* Header Top */}
+              
                     <div className="flex items-center justify-between p-2">
                         <div className="flex items-center gap-3">
-                            {/* Mobile Hamburger */}
+                         
                             <button
                                 onClick={toggleMobileMenu}
                                 className="md:hidden text-white bg-[#191919] p-2 rounded hover:bg-[#151515]"
@@ -118,7 +118,7 @@ const Dashboard = () => {
                                 <Menu size={20} />
                             </button>
 
-                            {/* Sidebar Button - Desktop only */}
+                         
                             <button
                                 onClick={toggleSidebar}
                                 className="hidden md:flex text-white bg-[#191919] p-2 rounded hover:bg-[#151515]"
@@ -126,7 +126,7 @@ const Dashboard = () => {
                                 <SidebarIcon size={20} />
                             </button>
 
-                            {/* Team Space Dropdown */}
+                          
                             <div className="relative hidden md:flex items-center">
                                 <div
                                     onClick={toggleDropdown}
@@ -168,7 +168,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        {/* Right Action Buttons */}
+                   
                         <div className="hidden md:flex gap-3 bg-[#131313] px-4 py-2 rounded-lg shadow-md text-[gray]">
                             <button className="flex items-center gap-1 px-1 py-1 border border-gray-700 rounded-lg">
                                 <Bot size={18} className='text-pink-500' />
@@ -188,7 +188,6 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    {/* Mobile Dropdown Menu */}
                     {isMobileMenuOpen && (
                         <div className="md:hidden bg-[#151515] border-t border-gray-700 px-4 py-3 space-y-3">
                             <div onClick={toggleDropdown} className="flex items-center gap-2 cursor-pointer">
@@ -221,7 +220,7 @@ const Dashboard = () => {
                                 </ul>
                             )}
 
-                            {/* Action Buttons in Mobile */}
+                      
                             <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-600 mt-3">
                                 <button className="flex items-center gap-1 px-2 py-1 border border-gray-700 rounded-lg text-sm">
                                     <Bot size={16} className='text-pink-500' /> Agent
@@ -239,7 +238,6 @@ const Dashboard = () => {
                         </div>
                     )}
 
-                    {/* Tabs */}
                     <nav className="w-full border-b mt-5 content-start border-gray-700 bg-[#111] text-white">
                         <div className="max-w-7xl sm:px-3 lg:px-2">
                             <div className="flex overflow-x-auto whitespace-nowrap">
@@ -259,10 +257,10 @@ const Dashboard = () => {
                     </nav>
                 </div>
 
-                {/* Cards Section */}
+              
                 <div className="h-auto mb-7 pb-7 w-full">
                     <div className="w-full  mt-6 pb-4 h-auto flex flex-col overflow-hidden">
-                        {/* Scrollable Area */}
+                      
                         <div className="flex-1 overflow-y-auto scrollbar-custom">
                             <DragDropContext onDragEnd={onDragEnd}>
                                 <Droppable
@@ -306,25 +304,25 @@ const Dashboard = () => {
                                 </Droppable>
                             </DragDropContext>
 
-                            {/* Folder & List Sections (in row or column as desired) */}
+                        
                             <div className="mt-4 flex flex-col w-full gap-2">
                                 <div className="w-full">
                                     <FolderSection />
                                 </div>
                                 <div className="w-full">
-                                    <ListSection/> {/* renamed from List to avoid naming conflict */}
+                                    <ListSection /> 
                                 </div>
-                                <div className="mt-4 w-full flex gap-2">
-                                    <div className='w-1/2'>
-  <ResourceSection  />
+                                <div className="mt-4 w-full flex gap-2 md:flex-row flex-col">
+                                    <div className='md:w-1/2 w-full'>
+                                        <ResourceSection />
                                     </div>
-                                     <div className='w-1/2'>
-  <WorkloadStatusChart  />
+                                    <div className='md:w-1/2 w-full'>
+                                        <WorkloadStatusChart />
                                     </div>
 
 
 
-</div>
+                                </div>
                             </div>
                         </div>
                     </div>

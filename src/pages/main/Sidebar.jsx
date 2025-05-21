@@ -5,7 +5,7 @@ const Sidebar = ({ onClose }) => {
   return (
     <div className="w-64 h-full bg-[#1a1a1a] text-white p-4 flex rounded-xl flex-col gap-4">
 
-      {/* Top section */}
+ 
       <div className="flex items-center justify-between">
         <span className="text-lg font-bold">Home</span>
         <div className="flex items-center gap-2">
@@ -17,7 +17,7 @@ const Sidebar = ({ onClose }) => {
         </div>
       </div>
 
-      {/* Inbox */}
+
       <div className="flex items-center gap-2 text-sm mt-2 cursor-pointer hover:bg-gray-800 px-2 py-1 rounded-md">
         <Inbox size={16} />
         Inbox
@@ -25,7 +25,7 @@ const Sidebar = ({ onClose }) => {
 
       <hr className="border-gray-600 my-2" />
 
-      {/* Workspace */}
+
       <div className="text-sm font-semibold">Sanskrati Kurariya's Workspace</div>
       <div className="text-sm">Team Space</div>
       <ul className="ml-4 space-y-2">
