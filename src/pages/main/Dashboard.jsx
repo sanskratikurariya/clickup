@@ -29,6 +29,7 @@ import {
 import ListSection from './ListSection';
 import ResourceSection from './ResourcesSection';
 import WorkloadStatusChart from './WorkloadStatusChart';
+import VerticalNavbar from './VerticalNavbar';
 
 const initialCards = [
     {
@@ -90,6 +91,17 @@ const Dashboard = () => {
         setCards(newCards);
     };
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+      const [isDesktopNew, setIsDesktopNew] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktopNew(window.innerWidth >= 1024); // Tailwind's 'lg' breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
     useEffect(() => {
         function handleResize() {
@@ -103,14 +115,15 @@ const Dashboard = () => {
 
     return (
         <div className="flex  mt-20 md:mt-9 border-1 border-gray-800 rounded-lg bg-[#0f0f0f] h-screen p-2 text-white overflow-x-hidden ">
+
             {isSidebarOpen && <SidebarComponent onClose={() => setIsSidebarOpen(false)} />}
             <div className="flex-1 flex flex-col p-2 overflow-y-auto relative mb-12 ">
-           
+
                 <div className="w-full bg-[#111] text-white">
-              
+
                     <div className="flex items-center justify-between p-2">
                         <div className="flex items-center gap-3">
-                         
+
                             <button
                                 onClick={toggleMobileMenu}
                                 className="md:hidden text-white bg-[#191919] p-2 rounded hover:bg-[#151515]"
@@ -118,15 +131,15 @@ const Dashboard = () => {
                                 <Menu size={20} />
                             </button>
 
-                         
+
                             <button
                                 onClick={toggleSidebar}
-                                className="hidden md:flex text-white bg-[#191919] p-2 rounded hover:bg-[#151515]"
+                                className=" md:flex text-white bg-[#191919] p-2 rounded hover:bg-[#151515]"
                             >
                                 <SidebarIcon size={20} />
                             </button>
 
-                          
+
                             <div className="relative hidden md:flex items-center">
                                 <div
                                     onClick={toggleDropdown}
@@ -168,7 +181,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                   
+
                         <div className="hidden md:flex gap-3 bg-[#131313] px-4 py-2 rounded-lg shadow-md text-[gray]">
                             <button className="flex items-center gap-1 px-1 py-1 border border-gray-700 rounded-lg">
                                 <Bot size={18} className='text-pink-500' />
@@ -220,7 +233,7 @@ const Dashboard = () => {
                                 </ul>
                             )}
 
-                      
+
                             <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-600 mt-3">
                                 <button className="flex items-center gap-1 px-2 py-1 border border-gray-700 rounded-lg text-sm">
                                     <Bot size={16} className='text-pink-500' /> Agent
@@ -257,10 +270,10 @@ const Dashboard = () => {
                     </nav>
                 </div>
 
-              
+
                 <div className="h-auto mb-7 pb-7 w-full">
                     <div className="w-full  mt-6 pb-4 h-auto flex flex-col overflow-hidden">
-                      
+
                         <div className="flex-1 overflow-y-auto scrollbar-custom">
                             <DragDropContext onDragEnd={onDragEnd}>
                                 <Droppable
@@ -286,7 +299,7 @@ const Dashboard = () => {
                                                             ref={provided.innerRef}
                                                             {...provided.draggableProps}
                                                             {...provided.dragHandleProps}
-                                                            className="flex-shrink-0 bg-[#181818] rounded-xl border border-[#242424] shadow-md p-4 w-full sm:min-w-[250px] md:w-[32%] md:h-[45%] aspect-[4/3] overflow-x-hidden"
+                                                            className="flex-shrink-0 bg-[#181818] rounded-xl border border-[#242424] shadow-md p-4 w-full sm:min-w-[250px] md:w-[31%] md:h-[45%] aspect-[4/3] overflow-x-hidden"
                                                         >
                                                             <Card
                                                                 title={card.title}
@@ -304,23 +317,20 @@ const Dashboard = () => {
                                 </Droppable>
                             </DragDropContext>
 
-                        
                             <div className="mt-4 flex flex-col w-full gap-2">
                                 <div className="w-full">
-                                    <FolderSection />
+                                    <FolderSection isDraggable={isDesktopNew} />
                                 </div>
                                 <div className="w-full">
-                                    <ListSection /> 
+                                    <ListSection isDraggable={isDesktopNew} />
                                 </div>
                                 <div className="mt-4 w-full flex gap-2 md:flex-row flex-col">
-                                    <div className='md:w-1/2 w-full'>
-                                        <ResourceSection />
+                                    <div className="md:w-1/2 w-full">
+                                        <ResourceSection isDraggable={isDesktopNew} />
                                     </div>
-                                    <div className='md:w-1/2 w-full'>
-                                        <WorkloadStatusChart />
+                                    <div className="md:w-1/2 w-full">
+                                        <WorkloadStatusChart isDraggable={isDesktopNew} />
                                     </div>
-
-
 
                                 </div>
                             </div>

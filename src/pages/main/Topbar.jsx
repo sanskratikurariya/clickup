@@ -32,10 +32,10 @@ const Topbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full bg-black text-white px-2 py-2 flex flex-col md:flex-row items-center justify-between z-50 shadow-md gap-2 md:gap-0">
 
-      <div className="relative w-full md:w-auto flex justify-between items-center">
+      <div className="relative w-full md:w-auto flex justify-between items-center ">
         <div
           onClick={toggleDropdown}
-          className="cursor-pointer text-sm font-bold flex gap-2 rounded-xl items-center bg-[#161515] px-3 py-2"
+          className="cursor-pointer text-sm font-bold flex gap-2 rounded-xl items-center bg-[#161515] px-3 py-2 "
         >
           <span className="bg-red-400 px-1 py-1 rounded-lg text-white text-sm font-bold">S</span>
           <p className="flex items-center gap-1">
@@ -45,7 +45,7 @@ const Topbar = () => {
 
         {/* Dropdown Menu */}
         {isDropdownOpen && (
-          <div className="absolute left-0 mt-2 w-auto p-3 bg-[#1e1e1e] border border-gray-700 rounded-lg shadow-lg z-50">
+          <div className="absolute left-0 mt-[450px] w-auto p-3 bg-[#1e1e1e] border border-gray-700 rounded-lg shadow-lg z-50 ">
             <div className="cursor-pointer text-sm font-bold whitespace-nowrap flex gap-2 items-center py-2 px-2 rounded hover:bg-[#1b1b1b]">
               <span className="bg-red-400 px-2 py-2 rounded-lg text-white text-sm font-bold">S</span>
               <p className="flex items-center gap-1">
@@ -78,7 +78,7 @@ const Topbar = () => {
           placeholder="Search everything..."
           className="hidden md:block bg-[#101010] px-2 py-1 rounded-md w-full md:w-64"
         />
-        <button className="bg-purple-600 px-3 py-1 rounded-md whitespace-nowrap text-sm">
+        <button className="bg-[#171717] px-3 font-bold py-1 rounded-md whitespace-nowrap text-sm">
           + Task
         </button>
       </div>
